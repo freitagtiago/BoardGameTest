@@ -11,11 +11,33 @@ public class BehaviourTreeEditor : EditorWindow
 
     [SerializeField] private VisualTreeAsset m_VisualTreeAsset = default;
 
+    private BehaviourTreeSO _selectedBehaviourTree;
+
     [MenuItem("BehaviourTreeEditor/Editor")]
     public static void OpenWindow()
     {
         BehaviourTreeEditor wnd = GetWindow<BehaviourTreeEditor>();
-        wnd.titleContent = new GUIContent("BehaviourTreeEditor");
+        wnd.titleContent = new GUIContent("Behaviour Tree Editor");
+    }
+
+    public static void OpenWindow(BehaviourTreeSO behaviourTree)
+    {
+        var window = GetWindow<BehaviourTreeEditor>();
+        window.titleContent = new GUIContent("Behavior Tree Editor");
+        window.Show();
+        window.FocusOnTree(behaviourTree);
+    }
+
+    public void FocusOnTree(BehaviourTreeSO behaviourTree)
+    {
+        _selectedBehaviourTree = behaviourTree;
+        Debug.Log($"Focando no BehaviorTree: {behaviourTree.name}");
+
+        // Se houver um sistema de seleção visual, destaque o comportamento na GraphView
+        if (_treeView != null)
+        {
+            _treeView.PopulateView(behaviourTree);
+        }
     }
 
     public void CreateGUI()

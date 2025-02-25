@@ -131,3 +131,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 822c3e8156824674ba471fcd7a41ff91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _behaviourTrees:
+  - {fileID: 11400000, guid: 4965d14b13e385e4c915b2d6297c8fbd, type: 2}
+  - {fileID: 11400000, guid: 567c6bdca74c60349824ff1485cd18df, type: 2}

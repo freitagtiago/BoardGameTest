@@ -59,8 +59,11 @@ public class BehaviourTreeView : GraphView
 
                 if(childView != null)
                 {
-                    Edge edge = parentView._output.ConnectTo(childView._input);
-                    AddElement(edge);
+                    if(childView._input != null)
+                    {
+                        Edge edge = parentView._output.ConnectTo(childView._input);
+                        AddElement(edge);
+                    }
                 }
             });
         });

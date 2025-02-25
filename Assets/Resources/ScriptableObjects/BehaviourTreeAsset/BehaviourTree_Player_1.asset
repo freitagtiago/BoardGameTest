@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-6026299851933753685
+--- !u!114 &-5820670032812514729
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -14,10 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _state: 0
   _started: 0
-  guid: bd2bc11d76e5ec846af324a7232dedd2
-  _position: {x: 0, y: 0}
-  _children: []
-  _moveDirection: 0
+  guid: e49478d7ff53a154181f4533d8d85448
+  _position: {x: 250, y: 0}
+  _children:
+  - {fileID: 2787541004402988970}
+  _moveDirection: 1
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28,15 +29,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ac8e7353430f3d444b7987deccca1c1c, type: 3}
-  m_Name: New Behaviour Tree 1
+  m_Name: BehaviourTree_Player_1
   m_EditorClassIdentifier: 
-  _rootNode: {fileID: 2216357635797056699}
+  _rootNode: {fileID: 2770841104973542089}
   _treeState: 0
   _nodes:
-  - {fileID: 2216357635797056699}
-  - {fileID: 5338835102775663684}
-  - {fileID: -6026299851933753685}
---- !u!114 &2216357635797056699
+  - {fileID: 2770841104973542089}
+  - {fileID: -5820670032812514729}
+  - {fileID: 2787541004402988970}
+  - {fileID: 5193186232887556791}
+--- !u!114 &2770841104973542089
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -50,10 +52,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _state: 0
   _started: 0
-  guid: f0c5f489d8101734a92afb63eb4f7679
+  guid: d70419e1a5f7e9b42b671e05e3ab9ef2
   _position: {x: 0, y: 0}
-  _child: {fileID: 5338835102775663684}
---- !u!114 &5338835102775663684
+  _child: {fileID: -5820670032812514729}
+--- !u!114 &2787541004402988970
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -67,7 +69,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _state: 0
   _started: 0
-  guid: 94db66207fc5f67429dc85aebe17ece6
-  _position: {x: 250, y: 0}
+  guid: b33058e5d73de1842a615cc855f09dca
+  _position: {x: 500, y: 0}
+  _children: []
+  _moveDirection: 1
+--- !u!114 &5193186232887556791
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88f3b578286896942820a759ec49caf2, type: 3}
+  m_Name: MovePieceBehaviourNode
+  m_EditorClassIdentifier: 
+  _state: 0
+  _started: 0
+  guid: 9a6ac13e805e27f4aa1e3e371ef4c66e
+  _position: {x: 0, y: 0}
   _children: []
   _moveDirection: 0
