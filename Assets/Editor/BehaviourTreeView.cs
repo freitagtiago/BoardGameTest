@@ -7,6 +7,7 @@ using BoardGame.Config;
 using static UnityEditor.Experimental.GraphView.GraphView;
 using System.Linq;
 using System.Collections.Generic;
+using NUnit.Framework;
 
 public class BehaviourTreeView : GraphView
 {
@@ -130,14 +131,20 @@ public class BehaviourTreeView : GraphView
     {
         NodeView nodeView = new NodeView(node);
         nodeView.OnNodeSelected = OnNodeSelected;
-        //AddElement(nodeView);
 
         if(_tree._nodes.Count > 0)
         {
+            int lastNodeIndex = _tree._nodes.Count - 2;
+            if (lastNodeIndex < 0)
+            {
+                AddElement(nodeView);
+                return;
+            }
+
             Vector2 newNodePosition = new Vector2(200, 200);
             float maxX = float.MinValue;
 
-            BoardGame.Config.Node lastNode = _tree._nodes[_tree._nodes.Count - 2];
+            BoardGame.Config.Node lastNode = _tree._nodes[lastNodeIndex];
 
             if(node._position == Vector2.zero)
             {
@@ -149,6 +156,22 @@ public class BehaviourTreeView : GraphView
                 }
 
                 nodeView.SetPosition(new Rect(newNodePosition, new Vector2(150, 100)));
+
+                if (lastNode is CompositeNode)
+                {
+                    (lastNode as CompositeNode)._children.Add(node);
+                    NodeView lastNodeView = FindNodeView(lastNode);
+
+                    Edge edge = lastNodeView._output.ConnectTo(nodeView._input);
+                    AddElement(edge);
+                } else if (lastNode is TriggerNode)
+                {
+                    (lastNode as TriggerNode)._child = node;
+                    NodeView lastNodeView = FindNodeView(lastNode);
+
+                    Edge edge = lastNodeView._output.ConnectTo(nodeView._input);
+                    AddElement(edge);
+                }
             }
         }
         AddElement(nodeView);

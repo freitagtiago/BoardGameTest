@@ -18,21 +18,21 @@ namespace BoardGame.Config
             Debug.Log("Stop to move to " + _moveDirection.ToString());
         }
 
-        protected override State OnUpdate()
+        protected override NodeBehaviour OnUpdate()
         {
             Node child = _children[_currentNode];
             switch (child.Update())
             {
-                case State.Running:
-                    return State.Running;
-                case State.Failure:
-                    return State.Failure;
-                case State.Success:
+                case NodeBehaviour.Running:
+                    return NodeBehaviour.Running;
+                case NodeBehaviour.Failure:
+                    return NodeBehaviour.Failure;
+                case NodeBehaviour.Success:
                     _currentNode++;
                     break;
             }
 
-            return _currentNode == _children.Count ? State.Success : State.Running;
+            return _currentNode == _children.Count ? NodeBehaviour.Success : NodeBehaviour.Running;
         }
     }
 }

@@ -4,12 +4,12 @@ namespace BoardGame.Config
 {
     public abstract class Node : ScriptableObject
     {
-        [HideInInspector] public State _state = State.Running;
+        [HideInInspector] public NodeBehaviour _state = NodeBehaviour.Running;
         [HideInInspector] public bool _started = false;
         [HideInInspector] public string guid;
         [HideInInspector] public Vector2 _position;
         
-        public State Update()
+        public NodeBehaviour Update()
         {
             if (!_started)
             {
@@ -19,8 +19,8 @@ namespace BoardGame.Config
 
             _state = OnUpdate();
 
-            if(_state == State.Failure
-                || _state == State.Success)
+            if(_state == NodeBehaviour.Failure
+                || _state == NodeBehaviour.Success)
             {
                 OnStop();
                 _started = false;
@@ -35,7 +35,7 @@ namespace BoardGame.Config
         }
         protected abstract void OnStart();
         protected abstract void OnStop();
-        protected abstract State OnUpdate();
+        protected abstract NodeBehaviour OnUpdate();
     }
 }
 

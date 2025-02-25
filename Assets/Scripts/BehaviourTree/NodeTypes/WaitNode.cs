@@ -16,13 +16,13 @@ namespace BoardGame.Config
             
         }
 
-        protected override State OnUpdate()
+        protected override NodeBehaviour OnUpdate()
         {
             if(Time.time - _startTime > _duration)
             {
-                return State.Success;
+                return NodeBehaviour.Success;
             }
-            return State.Running;
+            return NodeBehaviour.Running;
         }
     }
 }

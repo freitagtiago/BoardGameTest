@@ -1,25 +1,35 @@
 using BoardGame.Config;
 using NUnit.Framework;
 using UnityEngine;
+#if UNITY_EDITOR
 using UnityEditor;
+#endif
 using System.Collections.Generic;
 
 [CreateAssetMenu(fileName = "New Behaviour Tree", menuName = "ScriptableObjects/BehaviourTree/BehaviourTree", order = 1)]
 public class BehaviourTreeSO : ScriptableObject
 {
     public Node _rootNode;
-    public State _treeState = State.Running;
+    public NodeBehaviour _treeState = NodeBehaviour.Running;
     public List<Node> _nodes = new List<Node>();
 
-    public State Update()
+    public NodeBehaviour Update()
     {
-        if(_rootNode._state == State.Running)
+        if(_rootNode._state == NodeBehaviour.Running)
         {
             _treeState = _rootNode.Update();
         }
         return _treeState;
     }
 
+    public BehaviourTreeSO Clone()
+    {
+        BehaviourTreeSO tree = Instantiate(this);
+        tree._rootNode = tree._rootNode.Clone();
+        return tree;
+    }
+
+#if UNITY_EDITOR
     public Node CreateNode(System.Type type)
     {
         Node node = ScriptableObject.CreateInstance(type) as Node;
@@ -105,11 +115,5 @@ public class BehaviourTreeSO : ScriptableObject
 
         return children;
     }
-
-    public BehaviourTreeSO Clone()
-    {
-        BehaviourTreeSO tree = Instantiate(this);
-        tree._rootNode = tree._rootNode.Clone();
-        return tree;
-    }
+#endif
 }

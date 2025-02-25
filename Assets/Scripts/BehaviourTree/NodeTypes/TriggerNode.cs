@@ -14,7 +14,7 @@ public class TriggerNode : Node
         
     }
 
-    protected override State OnUpdate()
+    protected override NodeBehaviour OnUpdate()
     {
         return _child.Update();
     }
