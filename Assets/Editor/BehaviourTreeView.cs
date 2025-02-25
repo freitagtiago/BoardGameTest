@@ -149,7 +149,8 @@ public class BehaviourTreeView : GraphView
 
             BoardGame.Config.Node lastNode = _tree._nodes[lastNodeIndex];
 
-            if(node._position == Vector2.zero)
+            if(node._position == Vector2.zero
+                && nodeView._input != null)
             {
                 float nodeRightEdge = lastNode._position.x + 200;
                 if (nodeRightEdge > maxX)
@@ -160,21 +161,29 @@ public class BehaviourTreeView : GraphView
 
                 nodeView.SetPosition(new Rect(newNodePosition, new Vector2(150, 100)));
 
-                if (lastNode is CompositeNode)
+                if (nodeView._input != null)
                 {
-                    (lastNode as CompositeNode)._children.Add(node);
-                    NodeView lastNodeView = FindNodeView(lastNode);
+                    if (lastNode is CompositeNode)
+                    {
+                        (lastNode as CompositeNode)._children.Add(node);
+                        NodeView lastNodeView = FindNodeView(lastNode);
 
-                    Edge edge = lastNodeView._output.ConnectTo(nodeView._input);
-                    AddElement(edge);
-                } else if (lastNode is TriggerNode)
-                {
-                    (lastNode as TriggerNode)._child = node;
-                    NodeView lastNodeView = FindNodeView(lastNode);
+                        Edge edge = lastNodeView._output.ConnectTo(nodeView._input);
+                        AddElement(edge);
+                    }
+                    else if (lastNode is TriggerNode)
+                    {
+                        (lastNode as TriggerNode)._child = node;
+                        NodeView lastNodeView = FindNodeView(lastNode);
 
-                    Edge edge = lastNodeView._output.ConnectTo(nodeView._input);
-                    AddElement(edge);
+                        Edge edge = lastNodeView._output.ConnectTo(nodeView._input);
+                        AddElement(edge);
+                    }
                 }
+            }
+            else
+            {
+                nodeView.SetPosition(new Rect(node._position, new Vector2(150, 100)));
             }
         }
         AddElement(nodeView);

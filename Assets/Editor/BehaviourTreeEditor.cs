@@ -23,7 +23,7 @@ public class BehaviourTreeEditor : EditorWindow
     public static void OpenWindow(BehaviourTreeSO behaviourTree)
     {
         var window = GetWindow<BehaviourTreeEditor>();
-        window.titleContent = new GUIContent("Behavior Tree Editor");
+        window.titleContent = new GUIContent($"{behaviourTree.name}");
         window.Show();
         window.FocusOnTree(behaviourTree);
     }
@@ -31,9 +31,7 @@ public class BehaviourTreeEditor : EditorWindow
     public void FocusOnTree(BehaviourTreeSO behaviourTree)
     {
         _selectedBehaviourTree = behaviourTree;
-        Debug.Log($"Focando no BehaviorTree: {behaviourTree.name}");
-
-        // Se houver um sistema de seleção visual, destaque o comportamento na GraphView
+        
         if (_treeView != null)
         {
             _treeView.PopulateView(behaviourTree);
@@ -65,6 +63,7 @@ public class BehaviourTreeEditor : EditorWindow
             && AssetDatabase.CanOpenAssetInEditor(tree.GetInstanceID()))
         {
             _treeView.PopulateView(tree);
+            titleContent = new GUIContent($"{tree.name}");
         }
     }
 

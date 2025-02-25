@@ -32,7 +32,7 @@ namespace BoardGame.Config
                     break;
             }
 
-            return _currentNode == _children.Count ? NodeBehaviour.Success : NodeBehaviour.Running;
+            return _currentNode == _children.Count - 1 ? NodeBehaviour.Success : NodeBehaviour.Running;
         }
     }
 }
