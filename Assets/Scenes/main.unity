@@ -425,7 +425,7 @@ MonoBehaviour:
   _playerPiecePrefab: {fileID: 7696246416122606384, guid: 8614232909b0cc9449ecb2a91bd8e10c, type: 3}
   _enemyPiecePrefab: {fileID: 3304364707918170451, guid: e9a17e693b1d9d942a4071b18a4d7d5f, type: 3}
   _obstaclePiecePrefab: {fileID: 5377391899936191481, guid: 2b5f67f508a333b49b59d2dca3e707f9, type: 3}
-  _boardConfig: {fileID: 11400000, guid: 550e1c84d721186439b0015240728b63, type: 2}
+  _boardConfigSO: {fileID: 11400000, guid: 550e1c84d721186439b0015240728b63, type: 2}
   _paintedMaterial: {fileID: 2100000, guid: d3dac47379339d546ac48bd67436995d, type: 2}
   _unpaintedMaterial: {fileID: 2100000, guid: b8789042ff8e21c4596ab094522200c5, type: 2}
 --- !u!1 &832575517
@@ -477,6 +477,50 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &917569146
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 917569147}
+  - component: {fileID: 917569148}
+  m_Layer: 0
+  m_Name: BehaviourTreeRunner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &917569147
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 917569146}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 6.440651, y: -2.5848186, z: 9.067745}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &917569148
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 917569146}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7c395ebec8dc3243911284b9e08be38, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -485,3 +529,4 @@ SceneRoots:
   - {fileID: 410087041}
   - {fileID: 832575519}
   - {fileID: 684808971}
+  - {fileID: 917569147}

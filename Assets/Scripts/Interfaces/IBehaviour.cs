@@ -1,6 +1,6 @@
 namespace BoardGame.Game
 {
-    public interface IBehaviour
+    public interface IBehaviourSteep
     {
         public void DoBehaviour();
     }

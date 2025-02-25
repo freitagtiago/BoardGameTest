@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ebd7707396c858f4790a75daf8f08520, type: 3}
+  m_Script: {fileID: 11500000, guid: 4f6b6aa6f5f99b24d9dd2866555b2440, type: 3}
   m_Name: BasicConfig
   m_EditorClassIdentifier: 
   _boardDimension: {x: 8, y: 8}

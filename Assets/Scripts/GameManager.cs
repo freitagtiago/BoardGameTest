@@ -13,7 +13,7 @@ namespace BoardGame.Game
         [SerializeField] private Obstacle _obstaclePiecePrefab;
 
         [Header("Scriptable Objects")]
-        [SerializeField] private GameConfig _boardConfig;
+        [SerializeField] private GameConfigSO _boardConfigSO; 
 
         [Header("Board")]
         [SerializeField] private Material _paintedMaterial;
@@ -31,11 +31,11 @@ namespace BoardGame.Game
         }
         private void CreateBoard()
         {
-            _instantiatedTilesList = new Tile[(int)_boardConfig._boardDimension.x
-                                            , (int)_boardConfig._boardDimension.y];
-            for (int i = 0; i < _boardConfig._boardDimension.x; i++)
+            _instantiatedTilesList = new Tile[(int)_boardConfigSO._boardDimension.x
+                                            , (int)_boardConfigSO._boardDimension.y];
+            for (int i = 0; i < _boardConfigSO._boardDimension.x; i++)
             {
-                for (int j = 0; j < _boardConfig._boardDimension.y; j++)
+                for (int j = 0; j < _boardConfigSO._boardDimension.y; j++)
                 {
                     Tile tileInstantiated = Instantiate(_tilePrefab, this.transform);
                     tileInstantiated.Setup(new Vector2(i, j)
@@ -47,7 +47,7 @@ namespace BoardGame.Game
 
         private void SpawnBoardPieces()
         {
-            for(int i = 0; i < _boardConfig._obstaclePiecesNumber; i++)
+            for(int i = 0; i < _boardConfigSO._obstaclePiecesNumber; i++)
             {
                 Tile tileSelected = GetAvailableTile();
                 Obstacle obstacle = Instantiate(_obstaclePiecePrefab, tileSelected.transform);
@@ -55,7 +55,7 @@ namespace BoardGame.Game
                 tileSelected.SetPiece(obstacle.gameObject);
             }
 
-            for (int i = 0; i < _boardConfig._enemyPiecesNumber; i++)
+            for (int i = 0; i < _boardConfigSO._enemyPiecesNumber; i++)
             {
                 Tile tileSelected = GetAvailableTile();
                 EnemyPiece enemy = Instantiate(_enemyPiecePrefab, tileSelected.transform);
@@ -63,7 +63,7 @@ namespace BoardGame.Game
                 tileSelected.SetPiece(enemy.gameObject);
             }
 
-            for (int i = 0; i < _boardConfig._playerPiecesNumber; i++)
+            for (int i = 0; i < _boardConfigSO._playerPiecesNumber; i++)
             {
                 Tile tileSelected = GetAvailableTile();
                 PlayerPiece player = Instantiate(_playerPiecePrefab, tileSelected.transform);
@@ -79,8 +79,8 @@ namespace BoardGame.Game
 
             while (!positionDefined)
             {
-                Vector2 randomPos = Utils.Utils.GetRandomVector2((int)_boardConfig._boardDimension.x
-                                                                , (int)_boardConfig._boardDimension.y);
+                Vector2 randomPos = Utils.Utils.GetRandomVector2((int)_boardConfigSO._boardDimension.x
+                                                                , (int)_boardConfigSO._boardDimension.y);
 
                 Tile tileCandidate = _instantiatedTilesList[(int)randomPos.x, (int)randomPos.y];
                 if (!tileCandidate.IsOccupied())

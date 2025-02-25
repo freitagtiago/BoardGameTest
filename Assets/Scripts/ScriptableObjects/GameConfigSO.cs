@@ -2,8 +2,8 @@ using UnityEngine;
 
 namespace BoardGame.Config
 {
-    [CreateAssetMenu(fileName = "GameConfig", menuName = "ScriptableObjects/GameConfig", order = 1)]
-    public class GameConfig : ScriptableObject
+    [CreateAssetMenu(fileName = "GameConfigSO", menuName = "ScriptableObjects/GameConfigSO", order = 1)]
+    public class GameConfigSO : ScriptableObject
     {
         public Vector2 _boardDimension = new Vector2(8, 8);
         public int _playerPiecesNumber = 4;
