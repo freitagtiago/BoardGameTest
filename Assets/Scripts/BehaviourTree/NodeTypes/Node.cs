@@ -1,3 +1,5 @@
+using BoardGame.Game;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace BoardGame.Config
@@ -9,7 +11,7 @@ namespace BoardGame.Config
         [HideInInspector] public string guid;
         [HideInInspector] public Vector2 _position;
         
-        public NodeBehaviour Update()
+        public IEnumerable<NodeResult> UpdateNode(Tile currentPosition)
         {
             if (!_started)
             {
@@ -17,16 +19,18 @@ namespace BoardGame.Config
                 _started = true;
             }
 
-            _state = OnUpdate();
+            foreach (var result in OnUpdate(currentPosition))
+            {
+                _state = result._state;
+                yield return result; 
+            }
 
-            if(_state == NodeBehaviour.Failure
+            if (_state == NodeBehaviour.Failure
                 || _state == NodeBehaviour.Success)
             {
                 OnStop();
                 _started = false;
             }
-
-            return _state;
         }
 
         public virtual Node Clone()
@@ -35,7 +39,7 @@ namespace BoardGame.Config
         }
         protected abstract void OnStart();
         protected abstract void OnStop();
-        protected abstract NodeBehaviour OnUpdate();
+        protected abstract IEnumerable<NodeResult> OnUpdate(Tile currentPosition);
     }
 }
 

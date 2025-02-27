@@ -6,7 +6,7 @@ namespace BoardGame.Game
         , Down
         , Right
         , Left
-        , UpperRigth
+        , UpperRight
         , DownRight
         , UpperLeft
         , DownLeft

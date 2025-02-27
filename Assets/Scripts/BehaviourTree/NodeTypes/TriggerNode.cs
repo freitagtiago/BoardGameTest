@@ -1,28 +1,31 @@
-using BoardGame.Config;
+using BoardGame.Game;
+using System.Collections.Generic;
 using UnityEngine;
-
-public class TriggerNode : Node
+namespace BoardGame.Config
 {
-    [HideInInspector] public Node _child;
-    protected override void OnStart()
+    public class TriggerNode : Node
     {
-        
-    }
-
-    protected override void OnStop()
-    {
-        
-    }
-
-    protected override NodeBehaviour OnUpdate()
-    {
-        return _child.Update();
-    }
-
-    public override Node Clone()
-    {
-        TriggerNode node = Instantiate(this);
-        node._child = _child.Clone();
-        return node;
+        [HideInInspector] public Node _child;
+        protected override void OnStart()
+        {
+            
+        }
+    
+        protected override void OnStop()
+        {
+            
+        }
+    
+        protected override IEnumerable<NodeResult> OnUpdate(Tile currentTile)
+        {
+            return _child.UpdateNode(currentTile);
+        }
+    
+        public override Node Clone()
+        {
+            TriggerNode node = Instantiate(this);
+            node._child = _child.Clone();
+            return node;
+        }
     }
 }

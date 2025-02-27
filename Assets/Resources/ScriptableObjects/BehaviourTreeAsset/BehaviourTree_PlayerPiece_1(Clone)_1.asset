@@ -1,0 +1,111 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-4285207833063591520
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88f3b578286896942820a759ec49caf2, type: 3}
+  m_Name: MovePieceBehaviourNode
+  m_EditorClassIdentifier: 
+  _state: 0
+  _started: 0
+  guid: 522d1e41fd588334b9462ed32f2e43ad
+  _position: {x: 0, y: 0}
+  _child: {fileID: 0}
+  _moveDirection: 0
+--- !u!114 &-763378396684964488
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88f3b578286896942820a759ec49caf2, type: 3}
+  m_Name: MovePieceBehaviourNode
+  m_EditorClassIdentifier: 
+  _state: 0
+  _started: 0
+  guid: 503d580964331a5429d829577eff969a
+  _position: {x: 750, y: 0}
+  _child: {fileID: 0}
+  _moveDirection: 0
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac8e7353430f3d444b7987deccca1c1c, type: 3}
+  m_Name: BehaviourTree_PlayerPiece_1(Clone)_1
+  m_EditorClassIdentifier: 
+  _rootNode: {fileID: 3562971884847746176}
+  _treeState: 0
+  _nodes:
+  - {fileID: 3562971884847746176}
+  - {fileID: 6460248649324922361}
+  - {fileID: 370610877658804489}
+  - {fileID: -763378396684964488}
+  - {fileID: -4285207833063591520}
+--- !u!114 &370610877658804489
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88f3b578286896942820a759ec49caf2, type: 3}
+  m_Name: MovePieceBehaviourNode
+  m_EditorClassIdentifier: 
+  _state: 0
+  _started: 0
+  guid: c745bf0a80113ca4b876b30b17d467e0
+  _position: {x: 500, y: 0}
+  _child: {fileID: -763378396684964488}
+  _moveDirection: 0
+--- !u!114 &3562971884847746176
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ce61d45eb204c14585f16b76ac903e2, type: 3}
+  m_Name: TriggerNode
+  m_EditorClassIdentifier: 
+  _state: 0
+  _started: 0
+  guid: 23cf45ad0d846544e9b94a779500f504
+  _position: {x: 0, y: 0}
+  _child: {fileID: 6460248649324922361}
+--- !u!114 &6460248649324922361
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88f3b578286896942820a759ec49caf2, type: 3}
+  m_Name: MovePieceBehaviourNode
+  m_EditorClassIdentifier: 
+  _state: 0
+  _started: 0
+  guid: 8d448d3de9f309b4084ec3351c6923d7
+  _position: {x: 250, y: 0}
+  _child: {fileID: 370610877658804489}
+  _moveDirection: 3

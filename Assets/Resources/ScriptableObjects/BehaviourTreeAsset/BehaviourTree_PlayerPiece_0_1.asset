@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-8257786158020520765
+--- !u!114 &-9180058179636539578
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -14,29 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _state: 0
   _started: 0
-  guid: d28b663065e8cf24997e0bd7e422ea1f
+  guid: 3c1575695b5df514a8847c546000854b
   _position: {x: 250, y: 0}
-  _children: []
-  _moveDirection: 0
---- !u!114 &11400000
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ac8e7353430f3d444b7987deccca1c1c, type: 3}
-  m_Name: BehaviourTree_Player_1
-  m_EditorClassIdentifier: 
-  _rootNode: {fileID: 7063874305443391}
-  _treeState: 0
-  _nodes:
-  - {fileID: 7063874305443391}
-  - {fileID: -8257786158020520765}
-  - {fileID: 6765893299530053191}
---- !u!114 &7063874305443391
+  _child: {fileID: 0}
+  _moveDirection: 5
+--- !u!114 &-7296848673268204702
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -50,10 +32,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _state: 0
   _started: 0
-  guid: aae739c9db9b8714e91ffec8b541a33b
+  guid: 530878a6b9790ea40aae78406e8d94b7
   _position: {x: 0, y: 0}
-  _child: {fileID: -8257786158020520765}
---- !u!114 &6765893299530053191
+  _child: {fileID: -9180058179636539578}
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac8e7353430f3d444b7987deccca1c1c, type: 3}
+  m_Name: BehaviourTree_PlayerPiece_0_1
+  m_EditorClassIdentifier: 
+  _rootNode: {fileID: -7296848673268204702}
+  _treeState: 0
+  _nodes:
+  - {fileID: -7296848673268204702}
+  - {fileID: -9180058179636539578}
+  - {fileID: 7847981044024135}
+--- !u!114 &7847981044024135
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -67,7 +67,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _state: 0
   _started: 0
-  guid: 1b689421072e31247b9df6f0e239831a
+  guid: e5b2f2c92fb7ae64c8c4c0593fa25a16
   _position: {x: 0, y: 0}
-  _children: []
+  _child: {fileID: 0}
   _moveDirection: 0

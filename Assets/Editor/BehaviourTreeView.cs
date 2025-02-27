@@ -4,16 +4,14 @@ using UnityEditor.Experimental.GraphView;
 using UnityEditor;
 using System;
 using BoardGame.Config;
-using static UnityEditor.Experimental.GraphView.GraphView;
 using System.Linq;
 using System.Collections.Generic;
-using NUnit.Framework;
 
 public class BehaviourTreeView : GraphView
 {
     public Action<NodeView> OnNodeSelected;
     public new class UxmlFactory : UxmlFactory<BehaviourTreeView, GraphView.UxmlTraits> { }
-    BehaviourTreeSO _tree;
+    private BehaviourTreeSO _tree;
 
     public BehaviourTreeView()
     {
@@ -102,13 +100,22 @@ public class BehaviourTreeView : GraphView
                 _tree.AddChild(parentView._node, childView._node);
             });
         }
+
+        EditorUtility.SetDirty(_tree);
+        AssetDatabase.SaveAssets();
+
         return graphViewChange;
     }
 
     public override void BuildContextualMenu(ContextualMenuPopulateEvent evt)
     {
+        /*
+         *  Adicionar aqui novas classes de comportamento
+         *  para criar o submenu da ferramenta de edição
+         */
+
         {
-            var types = TypeCache.GetTypesDerivedFrom<CompositeNode>();
+            var types = TypeCache.GetTypesDerivedFrom<DecoratorNode>();
 
             foreach (var type in types)
             {
@@ -163,9 +170,9 @@ public class BehaviourTreeView : GraphView
 
                 if (nodeView._input != null)
                 {
-                    if (lastNode is CompositeNode)
+                    if (lastNode is DecoratorNode)
                     {
-                        (lastNode as CompositeNode)._children.Add(node);
+                        (lastNode as DecoratorNode)._child = node;
                         NodeView lastNodeView = FindNodeView(lastNode);
 
                         Edge edge = lastNodeView._output.ConnectTo(nodeView._input);

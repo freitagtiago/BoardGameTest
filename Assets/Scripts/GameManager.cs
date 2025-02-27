@@ -1,14 +1,15 @@
 using BoardGame.Config;
 using System.Collections.Generic;
 using UnityEngine;
-using Utils;
 namespace BoardGame.Game
 {
     public class GameManager : MonoBehaviour
     {
+        public static GameManager Instance;
+
         [Header("Prefabs")]
         [SerializeField] private Tile _tilePrefab;
-        [SerializeField] private PlayerPiece _playerPiecePrefab;
+        [SerializeField] private List<PlayerPiece> _playerPiecePrefab = new List<PlayerPiece>();
         [SerializeField] private EnemyPiece _enemyPiecePrefab;
         [SerializeField] private Obstacle _obstaclePiecePrefab;
 
@@ -19,14 +20,24 @@ namespace BoardGame.Game
         [SerializeField] private Material _paintedMaterial;
         [SerializeField] private Material _unpaintedMaterial;
         private Tile[,] _instantiatedTilesList;
+        public bool _isSelectionEnabled = true;
+        public PlayerPiece _selectedPiece = null;
+
+        private void Awake()
+        {
+            if(Instance != null)
+            {
+                Destroy(this.gameObject);
+            }
+            else
+            {
+                Instance = this;
+            }
+        }
 
         private void Start()
         {
-            //Ler config de jogo
-            //Criar tabuleiro com o número de casas indicada
             CreateBoard();
-
-            //Criar as peças e aleatorizá-las sobre as posições
             SpawnBoardPieces();
         }
         private void CreateBoard()
@@ -52,7 +63,7 @@ namespace BoardGame.Game
                 Tile tileSelected = GetAvailableTile();
                 Obstacle obstacle = Instantiate(_obstaclePiecePrefab, tileSelected.transform);
 
-                tileSelected.SetPiece(obstacle.gameObject);
+                tileSelected.SetPiece(obstacle);
             }
 
             for (int i = 0; i < _boardConfigSO._enemyPiecesNumber; i++)
@@ -60,15 +71,15 @@ namespace BoardGame.Game
                 Tile tileSelected = GetAvailableTile();
                 EnemyPiece enemy = Instantiate(_enemyPiecePrefab, tileSelected.transform);
 
-                tileSelected.SetPiece(enemy.gameObject);
+                tileSelected.SetPiece(enemy);
             }
 
             for (int i = 0; i < _boardConfigSO._playerPiecesNumber; i++)
             {
                 Tile tileSelected = GetAvailableTile();
-                PlayerPiece player = Instantiate(_playerPiecePrefab, tileSelected.transform);
+                PlayerPiece player = Instantiate(_playerPiecePrefab[i], tileSelected.transform);
 
-                tileSelected.SetPiece(player.gameObject);
+                tileSelected.SetPiece(player);
             }
         }
 
@@ -90,8 +101,19 @@ namespace BoardGame.Game
                     break;
                 }
             }
-
             return tile;
+        }
+
+        public Tile GetTile(Vector2 tilePos)
+        {
+            if(tilePos.x < 0 
+                || tilePos.x >= _boardConfigSO._boardDimension.x
+                || tilePos.y < 0
+                || tilePos.y >= _boardConfigSO._boardDimension.y)
+            {
+                return null;
+            }
+            return _instantiatedTilesList[(int)tilePos.x, (int)tilePos.y];
         }
     }
 }

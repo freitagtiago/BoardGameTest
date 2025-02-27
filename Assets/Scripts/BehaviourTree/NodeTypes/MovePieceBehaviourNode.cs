@@ -1,38 +1,88 @@
 using BoardGame.Game;
-using Unity.VisualScripting;
+using System.Collections.Generic;
 using UnityEngine;
 namespace BoardGame.Config
 {
-    public class MovePieceBehaviourNode : CompositeNode
+    public class MovePieceBehaviourNode : DecoratorNode
     {
-        private int _currentNode;
+        /*
+         * Por questão de simplicidade  deixei 
+         * MovePieceBehaviourNode herdar de DecoratorNode
+         * Pois nesse momento MovePieceBehaviourNode aceita apenas
+         * um objeto filho. No futuro, com a possibilidade de ramificações 
+         * o uso e implementação da SequencerNode pode ser mais indicado.
+         */
+
         public MoveDirection _moveDirection;
 
         protected override void OnStart()
         {
-            Debug.Log("Starting to move to " + _moveDirection.ToString());
+
         }
 
         protected override void OnStop()
         {
-            Debug.Log("Stop to move to " + _moveDirection.ToString());
+
         }
 
-        protected override NodeBehaviour OnUpdate()
+        protected override IEnumerable<NodeResult> OnUpdate(Tile currentPosition)
         {
-            Node child = _children[_currentNode];
-            switch (child.Update())
+            Vector2 nextTilePos = GetPos(_moveDirection, currentPosition.GetCoordinates());
+            Tile nextTile = GameManager.Instance.GetTile(nextTilePos);
+
+            if (nextTile == null)
             {
-                case NodeBehaviour.Running:
-                    return NodeBehaviour.Running;
-                case NodeBehaviour.Failure:
-                    return NodeBehaviour.Failure;
-                case NodeBehaviour.Success:
-                    _currentNode++;
-                    break;
+                yield return new NodeResult(NodeBehaviour.Failure, this);
+                yield break;
             }
 
-            return _currentNode == _children.Count - 1 ? NodeBehaviour.Success : NodeBehaviour.Running;
+            if (nextTile.IsOccupied())
+            {
+                yield return new NodeResult(NodeBehaviour.Failure, this);
+                yield break;
+            }
+
+            if (_child == null)
+            {
+                yield return new NodeResult(NodeBehaviour.Success, this);
+                yield break;
+            }
+            else
+            {
+                yield return new NodeResult(NodeBehaviour.Success, this);
+            }
+
+            Node child = _child;
+
+            foreach(NodeResult node in child.UpdateNode(nextTile))
+            {
+                yield return node;
+            }
+        }
+
+        private Vector2 GetPos(MoveDirection direction, Vector2 tilePos)
+        {
+            switch (direction)
+            {
+                case MoveDirection.Up:
+                    return new Vector2(tilePos.x - 1, tilePos.y);
+                case MoveDirection.Down:
+                    return new Vector2(tilePos.x + 1, tilePos.y);
+                case MoveDirection.Right:
+                    return new Vector2(tilePos.x, tilePos.y + 1);
+                case MoveDirection.Left:
+                    return new Vector2(tilePos.x, tilePos.y - 1);
+                case MoveDirection.UpperRight:
+                    return new Vector2(tilePos.x - 1, tilePos.y + 1);
+                case MoveDirection.DownRight:
+                    return new Vector2(tilePos.x + 1, tilePos.y + 1);
+                case MoveDirection.UpperLeft:
+                    return new Vector2(tilePos.x - 1, tilePos.y - 1);
+                case MoveDirection.DownLeft:
+                    return new Vector2(tilePos.x + 1, tilePos.y - 1);
+                default:
+                    return Vector2.zero;
+            }
         }
     }
 }

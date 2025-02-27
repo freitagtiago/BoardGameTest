@@ -1,8 +1,7 @@
-using System.Collections.Generic;
 using UnityEditor;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.UIElements;
+using BoardGame.Config;
 
 public class BehaviourTreeEditor : EditorWindow
 {
@@ -40,7 +39,6 @@ public class BehaviourTreeEditor : EditorWindow
 
     public void CreateGUI()
     {
-        // Each editor window contains a root VisualElement object
         VisualElement root = rootVisualElement;
 
         var visualTree = AssetDatabase.LoadAssetAtPath<VisualTreeAsset>("Assets/Editor/BehaviourTreeEditor.uxml");
@@ -63,7 +61,7 @@ public class BehaviourTreeEditor : EditorWindow
             && AssetDatabase.CanOpenAssetInEditor(tree.GetInstanceID()))
         {
             _treeView.PopulateView(tree);
-            titleContent = new GUIContent($"{tree.name}");
+            titleContent = new GUIContent($"{tree.name}"); //Apenas uma pequena melhoria de UI para facilitar com que o GD identifique árvore está sendo alterada
         }
     }
 

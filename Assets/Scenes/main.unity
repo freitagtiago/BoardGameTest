@@ -387,6 +387,7 @@ GameObject:
   m_Component:
   - component: {fileID: 684808971}
   - component: {fileID: 684808972}
+  - component: {fileID: 684808973}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -422,12 +423,29 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _tilePrefab: {fileID: 3220107763982239283, guid: b23461c24f5991a44a2c532ba946154c, type: 3}
-  _playerPiecePrefab: {fileID: 7696246416122606384, guid: 8614232909b0cc9449ecb2a91bd8e10c, type: 3}
+  _playerPiecePrefab:
+  - {fileID: 7696246416122606384, guid: 8614232909b0cc9449ecb2a91bd8e10c, type: 3}
+  - {fileID: 7696246416122606384, guid: 3a660ba26307b50429504e8388950380, type: 3}
+  - {fileID: 7696246416122606384, guid: a61410a250ad37642bfbc63ae299d036, type: 3}
+  - {fileID: 7696246416122606384, guid: f585da3dc8ddf2a40a2792172b6e24a4, type: 3}
   _enemyPiecePrefab: {fileID: 3304364707918170451, guid: e9a17e693b1d9d942a4071b18a4d7d5f, type: 3}
   _obstaclePiecePrefab: {fileID: 5377391899936191481, guid: 2b5f67f508a333b49b59d2dca3e707f9, type: 3}
   _boardConfigSO: {fileID: 11400000, guid: 550e1c84d721186439b0015240728b63, type: 2}
   _paintedMaterial: {fileID: 2100000, guid: d3dac47379339d546ac48bd67436995d, type: 2}
   _unpaintedMaterial: {fileID: 2100000, guid: b8789042ff8e21c4596ab094522200c5, type: 2}
+--- !u!114 &684808973
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 684808970}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c702c34ea5cc2a64398039e749d614a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  movementTree: {fileID: 0}
 --- !u!1 &832575517
 GameObject:
   m_ObjectHideFlags: 0
@@ -477,51 +495,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1762848114
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1762848115}
-  - component: {fileID: 1762848116}
-  m_Layer: 0
-  m_Name: GameObject
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1762848115
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1762848114}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8.673093, y: -3.1585827, z: 8.986333}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1762848116
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1762848114}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f7c395ebec8dc3243911284b9e08be38, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _behaviourTreeSO: {fileID: 11400000, guid: 567c6bdca74c60349824ff1485cd18df, type: 2}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -530,4 +503,3 @@ SceneRoots:
   - {fileID: 410087041}
   - {fileID: 832575519}
   - {fileID: 684808971}
-  - {fileID: 1762848115}

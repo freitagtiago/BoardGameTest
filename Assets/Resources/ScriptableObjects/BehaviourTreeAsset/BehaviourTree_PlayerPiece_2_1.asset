@@ -1,0 +1,73 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac8e7353430f3d444b7987deccca1c1c, type: 3}
+  m_Name: BehaviourTree_PlayerPiece_2_1
+  m_EditorClassIdentifier: 
+  _rootNode: {fileID: 8522656296858422235}
+  _treeState: 0
+  _nodes:
+  - {fileID: 8522656296858422235}
+  - {fileID: 1181055567363125901}
+  - {fileID: 6361115598141069910}
+--- !u!114 &1181055567363125901
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88f3b578286896942820a759ec49caf2, type: 3}
+  m_Name: MovePieceBehaviourNode
+  m_EditorClassIdentifier: 
+  _state: 0
+  _started: 0
+  guid: ed7df05827d1d434c95f75030b7dc9b1
+  _position: {x: 250, y: 0}
+  _child: {fileID: 0}
+  _moveDirection: 7
+--- !u!114 &6361115598141069910
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88f3b578286896942820a759ec49caf2, type: 3}
+  m_Name: MovePieceBehaviourNode
+  m_EditorClassIdentifier: 
+  _state: 0
+  _started: 0
+  guid: 9ac54667b86cb134294bc4378a364e96
+  _position: {x: 0, y: 0}
+  _child: {fileID: 0}
+  _moveDirection: 0
+--- !u!114 &8522656296858422235
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ce61d45eb204c14585f16b76ac903e2, type: 3}
+  m_Name: TriggerNode
+  m_EditorClassIdentifier: 
+  _state: 0
+  _started: 0
+  guid: 5bfee2c459916984d8578e42c67a2749
+  _position: {x: 0, y: 0}
+  _child: {fileID: 1181055567363125901}
