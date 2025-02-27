@@ -115,6 +115,8 @@ namespace BoardGame.Game
                 }
                 tileSelected.SetPiece(player);
             }
+
+            Debug.Log("Peças foram distribuídas, selecione sua peça");
         }
 
         private Tile GetAvailableTile()
@@ -154,6 +156,11 @@ namespace BoardGame.Game
         {
             _selectedPiece = piece;
             _isSelectionEnabled = _selectedPiece == null ? true : false;
+
+            if (_isSelectionEnabled)
+            {
+                Debug.Log("Selecione sua peça");
+            }
         }
     }
 }

@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-6505926489581937482
+--- !u!114 &-7618721746112562813
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -12,30 +12,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88f3b578286896942820a759ec49caf2, type: 3}
   m_Name: MovePieceBehaviourNode
   m_EditorClassIdentifier: 
-  _state: 1
+  _state: 0
   _started: 0
-  guid: ca1455c0862a45c45819de3009a70b8d
+  guid: 09c2a9c036d489e478a43892e9dd0657
+  _position: {x: 750, y: 0}
+  _child: {fileID: 0}
+  _moveDirection: 0
+--- !u!114 &-4111507466342047204
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88f3b578286896942820a759ec49caf2, type: 3}
+  m_Name: MovePieceBehaviourNode
+  m_EditorClassIdentifier: 
+  _state: 0
+  _started: 0
+  guid: 823ed625170633e45a6a2c65daddfa97
   _position: {x: 250, y: 0}
-  _child: {fileID: -4161303169335693134}
-  _moveDirection: 1
---- !u!114 &-4161303169335693134
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 88f3b578286896942820a759ec49caf2, type: 3}
-  m_Name: MovePieceBehaviourNode
-  m_EditorClassIdentifier: 
-  _state: 1
-  _started: 0
-  guid: 182e262109cbaab4a80431ffa91b2a58
-  _position: {x: 500, y: 0}
-  _child: {fileID: 4101255249651528483}
-  _moveDirection: 2
+  _child: {fileID: 765602319702698209}
+  _moveDirection: 0
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -46,17 +46,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ac8e7353430f3d444b7987deccca1c1c, type: 3}
-  m_Name: BehaviourTree_PlayerPiece_0_2
+  m_Name: BehaviourTree_PlayerPiecePrefab_3_2
   m_EditorClassIdentifier: 
-  _rootNode: {fileID: 1149078541842513015}
-  _treeState: 1
+  _rootNode: {fileID: 448392576478819773}
+  _treeState: 0
   _nodes:
-  - {fileID: 1149078541842513015}
-  - {fileID: -6505926489581937482}
-  - {fileID: -4161303169335693134}
-  - {fileID: 4101255249651528483}
-  - {fileID: 5130575184906934657}
---- !u!114 &1149078541842513015
+  - {fileID: 448392576478819773}
+  - {fileID: -4111507466342047204}
+  - {fileID: 765602319702698209}
+  - {fileID: -7618721746112562813}
+  - {fileID: 3434634269664280151}
+--- !u!114 &448392576478819773
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -68,12 +68,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ce61d45eb204c14585f16b76ac903e2, type: 3}
   m_Name: TriggerNode
   m_EditorClassIdentifier: 
-  _state: 1
+  _state: 0
   _started: 0
-  guid: ea5b6bcffbd25a84daf70de9ef777c8b
+  guid: 71ee7bf75d5c9da45b55a99358d2e497
   _position: {x: 0, y: 0}
-  _child: {fileID: -6505926489581937482}
---- !u!114 &4101255249651528483
+  _child: {fileID: -4111507466342047204}
+--- !u!114 &765602319702698209
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -87,11 +87,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _state: 0
   _started: 0
-  guid: 4cfca0fce02c9a54f8a362703881cbf0
-  _position: {x: 750, y: 0}
-  _child: {fileID: 0}
-  _moveDirection: 1
---- !u!114 &5130575184906934657
+  guid: 074b500be7cb10a44b690809b6e3f268
+  _position: {x: 500, y: 0}
+  _child: {fileID: -7618721746112562813}
+  _moveDirection: 0
+--- !u!114 &3434634269664280151
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -105,7 +105,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _state: 0
   _started: 0
-  guid: da5235dd092677a4daeeef817a29193b
+  guid: 91c00d56bfe69234cb1e8b18395758b3
   _position: {x: 0, y: 0}
   _child: {fileID: 0}
   _moveDirection: 0

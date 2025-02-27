@@ -134,3 +134,4 @@ MonoBehaviour:
   _behaviourTrees:
   - {fileID: 11400000, guid: 0b6c5e4876631e7409afad448d06533a, type: 2}
   - {fileID: 11400000, guid: 076ac6e8c9d53834ca931d968e269e99, type: 2}
+  - {fileID: 11400000, guid: 039f125955d66a94ca159c3e58c8e41e, type: 2}
