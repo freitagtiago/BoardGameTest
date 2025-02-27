@@ -97,7 +97,7 @@ GameObject:
   - component: {fileID: 2849080653848396032}
   - component: {fileID: 7696246416122606384}
   m_Layer: 7
-  m_Name: PlayerPiece_0
+  m_Name: PlayerPiecePrefab_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -134,3 +134,4 @@ MonoBehaviour:
   _behaviourTrees:
   - {fileID: 11400000, guid: a30f2abfadad46b43b88d31caae1e16f, type: 2}
   - {fileID: 11400000, guid: 8055e1e9a21b15c4ebc09346988611c4, type: 2}
+  - {fileID: 11400000, guid: f5312f5757fd8184faf6ea9b930a23d1, type: 2}

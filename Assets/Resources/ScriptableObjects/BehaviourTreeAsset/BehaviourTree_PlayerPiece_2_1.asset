@@ -33,8 +33,8 @@ MonoBehaviour:
   _state: 0
   _started: 0
   guid: ed7df05827d1d434c95f75030b7dc9b1
-  _position: {x: 250, y: 0}
-  _child: {fileID: 0}
+  _position: {x: 190, y: 0}
+  _child: {fileID: 6361115598141069910}
   _moveDirection: 7
 --- !u!114 &6361115598141069910
 MonoBehaviour:
@@ -51,7 +51,7 @@ MonoBehaviour:
   _state: 0
   _started: 0
   guid: 9ac54667b86cb134294bc4378a364e96
-  _position: {x: 0, y: 0}
+  _position: {x: 480, y: 0}
   _child: {fileID: 0}
   _moveDirection: 0
 --- !u!114 &8522656296858422235

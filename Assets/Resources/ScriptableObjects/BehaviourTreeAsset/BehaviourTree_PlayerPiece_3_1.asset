@@ -15,7 +15,7 @@ MonoBehaviour:
   _state: 0
   _started: 0
   guid: 6715e81f989825b4582fb44fbd327095
-  _position: {x: 0, y: 0}
+  _position: {x: 505.48022, y: 0}
   _child: {fileID: 0}
   _moveDirection: 0
 --- !u!114 &-4150715903962977676
@@ -30,7 +30,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ce61d45eb204c14585f16b76ac903e2, type: 3}
   m_Name: TriggerNode
   m_EditorClassIdentifier: 
-  _state: 0
+  _state: 1
   _started: 0
   guid: 577ef336bce405a4bb460db8017906f6
   _position: {x: 0, y: 0}
@@ -47,11 +47,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88f3b578286896942820a759ec49caf2, type: 3}
   m_Name: MovePieceBehaviourNode
   m_EditorClassIdentifier: 
-  _state: 0
+  _state: 1
   _started: 0
   guid: 4860015e6f8c6cb4881a5dedab9f32e0
   _position: {x: 250, y: 0}
-  _child: {fileID: 0}
+  _child: {fileID: -8582768907064307036}
   _moveDirection: 0
 --- !u!114 &11400000
 MonoBehaviour:
@@ -66,7 +66,7 @@ MonoBehaviour:
   m_Name: BehaviourTree_PlayerPiece_3_1
   m_EditorClassIdentifier: 
   _rootNode: {fileID: -4150715903962977676}
-  _treeState: 0
+  _treeState: 1
   _nodes:
   - {fileID: -4150715903962977676}
   - {fileID: -3286434809608714588}
