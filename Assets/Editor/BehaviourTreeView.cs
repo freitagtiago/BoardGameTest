@@ -115,15 +115,38 @@ public class BehaviourTreeView : GraphView
          */
 
         {
-            var types = TypeCache.GetTypesDerivedFrom<DecoratorNode>();
+            var actionNodeTypes = TypeCache.GetTypesDerivedFrom<ActionNode>();
 
-            foreach (var type in types)
+            foreach (var type in actionNodeTypes)
             {
                 string menuPath = $"Add/Behaviour/{type.Name}";
 
                 evt.menu.AppendAction(menuPath, (a) => CreateNode(type));
             }
         }
+
+        {
+            var decoratorNodeTypes = TypeCache.GetTypesDerivedFrom<DecoratorNode>();
+
+            foreach (var type in decoratorNodeTypes)
+            {
+                string menuPath = $"Add/Behaviour/{type.Name}";
+
+                evt.menu.AppendAction(menuPath, (a) => CreateNode(type));
+            }
+        }
+
+        {
+            var composideNodeTypes = TypeCache.GetTypesDerivedFrom<CompositeNode>();
+
+            foreach (var type in composideNodeTypes)
+            {
+                string menuPath = $"Add/Behaviour/{type.Name}";
+
+                evt.menu.AppendAction(menuPath, (a) => CreateNode(type));
+            }
+        }
+
     }
 
     public override EventPropagation DeleteSelection()

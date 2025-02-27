@@ -1,14 +1,14 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="True">
     <Style src="project://database/Assets/Editor/BehaviourTreeEditor.uss?fileID=7433441132597879392&amp;guid=59d103808c79dd64197ad93332acd37d&amp;type=3#BehaviourTreeEditor" />
-    <SplitView>
+    <SplitView name="SplitView">
         <ui:VisualElement name="RightPanel" focusable="true" style="flex-grow: 1; background-color: rgb(75, 71, 71);">
             <ui:Label text="Behaviour Tree" />
-            <BehaviourTreeView name="BehaviourTreeView" focusable="true" style="flex-grow: 1;">
-                <ui:VisualElement name="LeftPanel" focusable="true" style="flex-grow: 1; background-color: rgb(55, 55, 55); width: 300px; min-width: 300px;">
-                    <ui:Label text="Inspector" />
-                    <InspectorView />
-                </ui:VisualElement>
-            </BehaviourTreeView>
         </ui:VisualElement>
+        <BehaviourTreeView name="BehaviourTreeView" focusable="true" style="flex-grow: 1;">
+            <ui:VisualElement name="LeftPanel" focusable="true" style="flex-grow: 1; background-color: rgb(55, 55, 55); width: 300px; min-width: 300px;">
+                <ui:Label text="Inspector" />
+                <InspectorView />
+            </ui:VisualElement>
+        </BehaviourTreeView>
     </SplitView>
 </ui:UXML>

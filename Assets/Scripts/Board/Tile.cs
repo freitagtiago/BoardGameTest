@@ -5,18 +5,19 @@ namespace BoardGame.Game
 {
     public class Tile : MonoBehaviour
     {
+        [Header("Components")]
         [SerializeField] private TextMeshPro _coordinateText;
         [SerializeField] private MeshRenderer _cube;
         [SerializeField] private GameObject _pathIndicator;
         [SerializeField] private GameObject _endpathIndicator;
 
-        private Vector2 _coordinate;
-        public Piece _occupiedBy;
         [SerializeField]private Material _endpathIndicatorMat;
         [SerializeField]private Material _pathIndicatorMat;
 
+        public Piece _occupiedBy { get; private set; }
         private int _treeBehaviourIndex = -1;
         private bool _isEndPath = false;
+        private Vector2 _coordinate;
 
         public void Setup(Vector2 coordinate, Material material)
         {
@@ -44,11 +45,6 @@ namespace BoardGame.Game
             }
         }
 
-        public bool IsOccupied()
-        {
-            return _occupiedBy != null;
-        }
-
         void OnMouseDown()
         {
             if (GameManager.Instance._isSelectionEnabled)
@@ -56,7 +52,7 @@ namespace BoardGame.Game
                 if (_occupiedBy is PlayerPiece)
                 {
                     (_occupiedBy as PlayerPiece).DrawMovementChoices(this);
-                    GameManager.Instance._selectedPiece = (_occupiedBy as PlayerPiece);
+                    GameManager.Instance.SetSelectedPiece((_occupiedBy as PlayerPiece));
                 }
             }
             else

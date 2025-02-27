@@ -10,7 +10,7 @@ namespace BoardGame.Config
          * MovePieceBehaviourNode herdar de DecoratorNode
          * Pois nesse momento MovePieceBehaviourNode aceita apenas
          * um objeto filho. No futuro, com a possibilidade de ramificações 
-         * o uso e implementação da SequencerNode pode ser mais indicado.
+         * o uso e implementação da CompositeNode pode ser mais indicado.
          */
 
         public MoveDirection _moveDirection;
@@ -36,7 +36,7 @@ namespace BoardGame.Config
                 yield break;
             }
 
-            if (nextTile.IsOccupied())
+            if (nextTile._occupiedBy != null)
             {
                 yield return new NodeResult(NodeBehaviour.Failure, this);
                 yield break;

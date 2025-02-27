@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using BoardGame.Config;
 using System.Linq;
 using System.Collections;
+using Unity.VisualScripting;
 namespace BoardGame.Game
 {
     public class BoardHandler : MonoBehaviour
@@ -26,7 +27,11 @@ namespace BoardGame.Game
             movementTree.StartExecution(currentPosition);
             StartCoroutine(DrawPathsFromTree(currentPosition, behaviourTreeIndex));
         }
-
+        /*
+         * As sequências de caminhos poderiam ser salvas em uma lista para que não seja necessário 
+         * percorrer novamente a lista para desempenhar o movimento. Como entendi que o foco do teste era
+         * trabalhar com a ferramenta de grafo, repeti a lógica para percorrer a lista ao invés de fazer um cache dos movimentos.
+         */
         private IEnumerator<NodeBehaviour> DrawPathsFromTree(Tile currentPosition, int behaviourTreeIndex)
         {
             List<Tile> validMoves = new List<Tile>();
@@ -63,7 +68,10 @@ namespace BoardGame.Game
             }
 
             validMoves.Clear();
-            GameManager.Instance._isSelectionEnabled = !(_highlithedTiles.Count > 0);
+            if(!(_highlithedTiles.Count > 0))
+            {
+                GameManager.Instance.SetSelectedPiece(null); //Caso não haja movimentação possível, permite a seleção de outras peças
+            }
         }
 
         private IEnumerator MovePieceFromTree(PlayerPiece playerPiece, int treeBehaviourIndex, Tile currentPosition)
@@ -103,9 +111,7 @@ namespace BoardGame.Game
                 }
                 currentPosition.SetPiece(playerPiece);
             }
-
-            GameManager.Instance._selectedPiece = null;
-            GameManager.Instance._isSelectionEnabled = true;
+            GameManager.Instance.SetSelectedPiece(null);
         }
 
         private Tile GetTileFromBehaviour(Tile currentPosition, Node node)
