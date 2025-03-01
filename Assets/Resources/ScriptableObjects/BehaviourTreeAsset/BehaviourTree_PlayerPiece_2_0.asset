@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-3341025296708046701
+--- !u!114 &-3664958319919826109
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -14,9 +14,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _state: 0
   _started: 0
+  guid: df077f2d427874c4eb34739a06ad4e2a
+  _position: {x: 0, y: 0}
+  _child: {fileID: 0}
+  _moveDirection: 0
+--- !u!114 &-3341025296708046701
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88f3b578286896942820a759ec49caf2, type: 3}
+  m_Name: MovePieceBehaviourNode
+  m_EditorClassIdentifier: 
+  _state: 2
+  _started: 0
   guid: fad3a054bce2ffd40b2396e75aaba8e8
   _position: {x: 500, y: 0}
-  _child: {fileID: 0}
+  _child: {fileID: 6273514760632846662}
   _moveDirection: 1
 --- !u!114 &11400000
 MonoBehaviour:
@@ -31,12 +49,13 @@ MonoBehaviour:
   m_Name: BehaviourTree_PlayerPiece_2_0
   m_EditorClassIdentifier: 
   _rootNode: {fileID: 6207993139151146033}
-  _treeState: 0
+  _treeState: 2
   _nodes:
   - {fileID: 6207993139151146033}
   - {fileID: 8122534905256203773}
   - {fileID: -3341025296708046701}
   - {fileID: 6273514760632846662}
+  - {fileID: -3664958319919826109}
 --- !u!114 &6207993139151146033
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -49,7 +68,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ce61d45eb204c14585f16b76ac903e2, type: 3}
   m_Name: TriggerNode
   m_EditorClassIdentifier: 
-  _state: 0
+  _state: 2
   _started: 0
   guid: 91ce77e78b3e1cf438e7d643a3c75615
   _position: {x: 0, y: 0}
@@ -66,10 +85,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88f3b578286896942820a759ec49caf2, type: 3}
   m_Name: MovePieceBehaviourNode
   m_EditorClassIdentifier: 
-  _state: 0
+  _state: 2
   _started: 0
   guid: 814b4c7de5beffb4b98f2fbd0f651702
-  _position: {x: 0, y: 0}
+  _position: {x: 750, y: 0}
   _child: {fileID: 0}
   _moveDirection: 0
 --- !u!114 &8122534905256203773
@@ -84,7 +103,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88f3b578286896942820a759ec49caf2, type: 3}
   m_Name: MovePieceBehaviourNode
   m_EditorClassIdentifier: 
-  _state: 0
+  _state: 2
   _started: 0
   guid: e4b413f241f775b46b4f488de1579e76
   _position: {x: 250, y: 0}

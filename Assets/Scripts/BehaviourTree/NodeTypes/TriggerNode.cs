@@ -16,9 +16,9 @@ namespace BoardGame.Config
             
         }
     
-        protected override IEnumerable<NodeResult> OnUpdate(Tile currentTile)
+        protected override IEnumerable<NodeResult> OnUpdate(Tile currentTile, Piece actingPiece)
         {
-            return _child.UpdateNode(currentTile);
+            return _child.UpdateNode(currentTile, actingPiece);
         }
     
         public override Node Clone()

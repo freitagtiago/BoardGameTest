@@ -11,7 +11,7 @@ namespace BoardGame.Config
         [HideInInspector] public string guid;
         [HideInInspector] public Vector2 _position;
         
-        public IEnumerable<NodeResult> UpdateNode(Tile currentPosition)
+        public IEnumerable<NodeResult> UpdateNode(Tile currentPosition, Piece actingPiece)
         {
             if (!_started)
             {
@@ -19,7 +19,7 @@ namespace BoardGame.Config
                 _started = true;
             }
 
-            foreach (var result in OnUpdate(currentPosition))
+            foreach (var result in OnUpdate(currentPosition, actingPiece))
             {
                 _state = result._state;
                 yield return result; 
@@ -39,7 +39,7 @@ namespace BoardGame.Config
         }
         protected abstract void OnStart();
         protected abstract void OnStop();
-        protected abstract IEnumerable<NodeResult> OnUpdate(Tile currentPosition);
+        protected abstract IEnumerable<NodeResult> OnUpdate(Tile currentPosition, Piece actingPiece);
     }
 }
 

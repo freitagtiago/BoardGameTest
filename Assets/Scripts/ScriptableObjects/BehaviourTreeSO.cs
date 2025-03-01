@@ -17,18 +17,18 @@ namespace BoardGame.Config
         private IEnumerator<NodeResult> _executionIterator;
 
 
-        public void StartExecution(Tile currentPosition)
+        public void StartExecution(Tile currentPosition, Piece actingPiece)
         {
             if (_rootNode == null) return;
 
-            _executionIterator = _rootNode.UpdateNode(currentPosition).GetEnumerator();
+            _executionIterator = _rootNode.UpdateNode(currentPosition, actingPiece).GetEnumerator();
         }
 
-        public IEnumerable<NodeResult> UpdateTree(Tile currentPosition)
+        public IEnumerable<NodeResult> UpdateTree(Tile currentPosition, Piece actingPiece)
         {
             if (_executionIterator == null)
             {
-                _executionIterator = _rootNode.UpdateNode(currentPosition).GetEnumerator();
+                _executionIterator = _rootNode.UpdateNode(currentPosition, actingPiece).GetEnumerator();
             }
             else
             {

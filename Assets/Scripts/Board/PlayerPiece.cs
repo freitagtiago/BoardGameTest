@@ -13,17 +13,17 @@ namespace BoardGame.Game
             _boardHandler = FindObjectOfType<BoardHandler>();
         }
     
-        public void DrawMovementChoices(Tile currentTile)
+        public void DrawMovementChoices()
         {
             _boardHandler.ResetHighlights(); 
     
-            foreach(BehaviourTreeSO tree in _behaviourTrees)
+            for(int i = 0; i < _behaviourTrees.Count; i++)
             {
-                _boardHandler.EvaluateMoves(tree, currentTile, _behaviourTrees.IndexOf(tree));
+                _boardHandler.EvaluateMoves(_behaviourTrees[i], _currentTile, i, this);
             }
         }
     
-        public void ApplyMovement(Tile currentTile, int behaviourTreeIndex)
+        public void ApplyMovement(int behaviourTreeIndex)
         {
             _boardHandler.ResetHighlights();
             _boardHandler.ApplyMovement(this, behaviourTreeIndex);

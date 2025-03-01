@@ -25,10 +25,10 @@ namespace BoardGame.Config
 
         }
 
-        protected override IEnumerable<NodeResult> OnUpdate(Tile currentPosition)
+        protected override IEnumerable<NodeResult> OnUpdate(Tile currentPosition, Piece actingPiece)
         {
             Vector2 nextTilePos = GetPos(_moveDirection, currentPosition.GetCoordinates());
-            Tile nextTile = GameManager.Instance.GetTile(nextTilePos);
+            Tile nextTile = BoardHandler.Instance.GetTile(nextTilePos);
 
             if (nextTile == null)
             {
@@ -36,7 +36,8 @@ namespace BoardGame.Config
                 yield break;
             }
 
-            if (nextTile._occupiedBy != null)
+            if (nextTile._occupiedBy != null
+                && nextTile._occupiedBy != actingPiece)
             {
                 yield return new NodeResult(NodeBehaviour.Failure, this);
                 yield break;
@@ -54,7 +55,7 @@ namespace BoardGame.Config
 
             Node child = _child;
 
-            foreach(NodeResult node in child.UpdateNode(nextTile))
+            foreach(NodeResult node in child.UpdateNode(nextTile, actingPiece))
             {
                 yield return node;
             }

@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-8494585013297541148
+--- !u!114 &-6503110501447252986
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -9,16 +9,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 88f3b578286896942820a759ec49caf2, type: 3}
-  m_Name: MovePieceBehaviourNode
+  m_Script: {fileID: 11500000, guid: 1ce61d45eb204c14585f16b76ac903e2, type: 3}
+  m_Name: TriggerNode
   m_EditorClassIdentifier: 
-  _state: 1
+  _state: 0
   _started: 0
-  guid: df68125d34be8614788641665de52c9e
-  _position: {x: 250, y: 0}
-  _child: {fileID: 2794037472386852876}
-  _moveDirection: 2
---- !u!114 &-4540611441300395302
+  guid: a1ae6ccac0a4d9e429ae45d0eb3277b1
+  _position: {x: 0, y: 0}
+  _child: {fileID: -3198987823038564090}
+--- !u!114 &-3198987823038564090
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -32,10 +31,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _state: 0
   _started: 0
-  guid: 2f54ca9da3c7b2f4484b34bff01c4bb0
-  _position: {x: 0, y: 0}
+  guid: de6589bc5d457384c946b6deb34fde41
+  _position: {x: 250, y: 0}
   _child: {fileID: 0}
-  _moveDirection: 0
+  _moveDirection: 2
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -46,16 +45,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ac8e7353430f3d444b7987deccca1c1c, type: 3}
-  m_Name: BehaviourTree_PlayerPiece_1_1
+  m_Name: BehaviourTree_PlayerPiecePrefab_1_3
   m_EditorClassIdentifier: 
-  _rootNode: {fileID: 3894726365902526601}
-  _treeState: 1
+  _rootNode: {fileID: -6503110501447252986}
+  _treeState: 0
   _nodes:
-  - {fileID: 3894726365902526601}
-  - {fileID: -8494585013297541148}
-  - {fileID: 2794037472386852876}
-  - {fileID: -4540611441300395302}
---- !u!114 &2794037472386852876
+  - {fileID: -6503110501447252986}
+  - {fileID: -3198987823038564090}
+  - {fileID: 5884247713624071541}
+--- !u!114 &5884247713624071541
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -67,26 +65,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88f3b578286896942820a759ec49caf2, type: 3}
   m_Name: MovePieceBehaviourNode
   m_EditorClassIdentifier: 
-  _state: 1
+  _state: 0
   _started: 0
-  guid: ffd979c8e39e14942a64be370e4baa92
-  _position: {x: 500, y: 0}
+  guid: f7cd9c3e0af391e4a99cf2fbfbf6f9ca
+  _position: {x: 0, y: 0}
   _child: {fileID: 0}
   _moveDirection: 0
---- !u!114 &3894726365902526601
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1ce61d45eb204c14585f16b76ac903e2, type: 3}
-  m_Name: TriggerNode
-  m_EditorClassIdentifier: 
-  _state: 1
-  _started: 0
-  guid: e36c66b78c73d624e8354513296a8823
-  _position: {x: 0, y: 0}
-  _child: {fileID: -8494585013297541148}

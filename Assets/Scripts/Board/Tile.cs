@@ -31,37 +31,11 @@ namespace BoardGame.Game
 
         public void SetPiece(Piece piece)
         {
-            if(GameManager.Instance._isSelectionEnabled)
+            if(_occupiedBy is EnemyPiece)
             {
-                _occupiedBy = piece;
+                _occupiedBy.gameObject.SetActive(false);
             }
-            else
-            {
-                if(_occupiedBy is EnemyPiece)
-                {
-                    _occupiedBy.gameObject.SetActive(false);
-                }
-                _occupiedBy = piece;
-            }
-        }
-
-        void OnMouseDown()
-        {
-            if (GameManager.Instance._isSelectionEnabled)
-            {
-                if (_occupiedBy is PlayerPiece)
-                {
-                    (_occupiedBy as PlayerPiece).DrawMovementChoices(this);
-                    GameManager.Instance.SetSelectedPiece((_occupiedBy as PlayerPiece));
-                }
-            }
-            else
-            {
-                if (_isEndPath)
-                {
-                    GameManager.Instance._selectedPiece.ApplyMovement(this, _treeBehaviourIndex);
-                }
-            }
+            _occupiedBy = piece;
         }
 
         /*
@@ -84,6 +58,16 @@ namespace BoardGame.Game
             {
                 _pathIndicator.GetComponent<MeshRenderer>().material = _pathIndicatorMat;
             }
+        }
+
+        public bool IsEndPath()
+        {
+            return _isEndPath;
+        }
+
+        public int GetTreeBehaviourIndex()
+        {
+            return _treeBehaviourIndex;
         }
 
         public Vector2 GetCoordinates()
